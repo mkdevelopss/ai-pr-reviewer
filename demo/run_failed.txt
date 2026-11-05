@@ -1,0 +1,36 @@
+Run that ends in FAILED with comments (PR demo/shop#2: signed webhook -> listener -> mock GitHub/Jira/LLM)
+
+## Listener log
+--- Reviewing demo/shop#2 'PROJ-101: Add login endpoint' (branch feature/PROJ-101-login-v1) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 02a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 526 characters
+AI verdict: fulfilled=False
+done: post a 'request changes' review
+done: set status 'failure' on 02a1b2c
+=== RESULT demo/shop#2: changes_requested (not fulfilled)
+
+## What was posted to GitHub
+STATUS  pending  ai-pr-reviewer: AI review in progress
+REVIEW (REQUEST_CHANGES):
+    ### ❌ Acceptance criteria not met: [PROJ-101](http://127.0.0.1:8800/browse/PROJ-101) Login page with account lockout
+    
+    **Missing requirements:**
+    - Passwords are checked with `check_password_hash`, never compared as plain text
+    - After 5 failed attempts the account is locked by `lock_account`
+    
+    **Bug:** the password is compared as plain text (`user.password != password`).
+    
+    <details><summary>Acceptance criteria checked</summary>
+    
+    - The login form validates the email format with `validate_email`
+    - Passwords are checked with `check_password_hash`, never compared as plain text
+    - After 5 failed attempts the account is locked by `lock_account`
+    - A successful login redirects to the dashboard via `redirect_to_dashboard`
+    
+    </details>
+    
+    ---
+    <sub>Automated review by ai-pr-reviewer. Re-runs on every new push to this PR.</sub>
+STATUS  failure  ai-pr-reviewer: Acceptance criteria of PROJ-101 not met

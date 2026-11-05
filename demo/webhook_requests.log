@@ -1,0 +1,20 @@
+== Security checks ==
+PR #1 -> HTTP 401 {"error":"invalid signature"}
+PR #1 -> HTTP 401 {"error":"invalid signature"}
+PR #1 -> HTTP 200 {"reason":"ignored pull_request action 'closed'","status":"ignored"}
+== All 13 scenarios (one at a time) ==
+PR #1 -> HTTP 202 {"pr":"demo/shop#1","status":"accepted"}
+PR #2 -> HTTP 202 {"pr":"demo/shop#2","status":"accepted"}
+PR #3 -> HTTP 202 {"pr":"demo/shop#3","status":"accepted"}
+PR #4 -> HTTP 202 {"pr":"demo/shop#4","status":"accepted"}
+PR #5 -> HTTP 202 {"pr":"demo/shop#5","status":"accepted"}
+PR #6 -> HTTP 202 {"pr":"demo/shop#6","status":"accepted"}
+PR #7 -> HTTP 202 {"pr":"demo/shop#7","status":"accepted"}
+PR #8 -> HTTP 202 {"pr":"demo/shop#8","status":"accepted"}
+PR #9 -> HTTP 202 {"pr":"demo/shop#9","status":"accepted"}
+PR #10 -> HTTP 202 {"pr":"demo/shop#10","status":"accepted"}
+PR #11 -> HTTP 202 {"pr":"demo/shop#11","status":"accepted"}
+PR #12 -> HTTP 202 {"pr":"demo/shop#12","status":"accepted"}
+PR #13 -> HTTP 202 {"pr":"demo/shop#13","status":"accepted"}
+== Duplicate delivery ==
+PR #1 -> HTTP 200 {"status":"duplicate delivery ignored"}

@@ -1,0 +1,27 @@
+LIVE RUN 1 (real GitHub + real Jira + real LLM): ends in FAILED with comments
+Repo: github.com/mkdevelopss/pr-review-demo   PR #2   Ticket: SCRUM-7 (hhdcga.atlassian.net)
+LLM: Groq, openai/gpt-oss-120b   Run on 2026-11-05 at about 13:02 PKT
+Screenshot: PR #2 shows "ai-pr-reviewer - Acceptance criteria of SCRUM-7 not met" (failing check)
+
+$ python review_pr.py mkdevelopss/pr-review-demo 2 --live
+--- Reviewing mkdevelopss/pr-review-demo#2 'SCRUM-7: Add email validator' (branch feature/SCRUM-7-email) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:openai/gpt-oss-120b | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on cd667a8
+ticket SCRUM-7 found in PR title
+ticket fetched: 'User input validators' (3 AC lines)
+diff fetched: 253 characters
+AI verdict: fulfilled=False
+review not allowed (Could not post a 'request changes' review: HTTP 422 Unprocessable Entity); posting a normal comment instead
+done: post a PR comment
+done: set status 'failure' on cd667a8
+
+RESULT: changes_requested (not fulfilled)
+
+AI feedback:
+**Missing requirements:**
+1. **`is_strong_password(pw)` implementation** – the diff only adds `is_valid_email`; there is no function that checks length, digit, and uppercase letter.
+2. **Unit tests** – no test files or test cases are included for either `is_valid_email` or the (missing) `is_strong_password`.
+
+Because these two acceptance criteria cannot be verified (and one is completely absent), the overall acceptance is not fulfilled.
+
+Note: HTTP 422 is GitHub refusing "request changes" on a PR owned by the token's own account.
+The tool fell back to a normal comment and still set the failed status, as designed.

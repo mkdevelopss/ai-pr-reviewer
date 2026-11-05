@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PR Reviewer</title>
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="ui.css">
+<link rel="stylesheet" href="app.css">
+<script src="ui.js"></script>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#overview" aria-label="PR Reviewer home">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C7A17A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M6 8.5v7M18 15.5V10a3 3 0 0 0-3-3h-4"/><path d="m13 5-2 2 2 2"/></svg>
+      <b>PR Reviewer</b><small>merge only when the ticket is met</small>
+    </a>
+    <span id="mode-pill" class="mode" hidden></span>
+    <nav aria-label="Views" id="nav" hidden>
+      <a href="#overview" data-view="overview">Overview</a>
+      <a href="#reviews" data-view="reviews">Reviews</a>
+      <a href="#run" data-view="run">Review a PR</a>
+      <a href="#settings" data-view="settings">Settings</a>
+      <button class="icon-btn" type="button" id="lock" aria-label="Lock dashboard" title="Lock">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      </button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch light or dark theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main"></main>
+<div id="drawer-root"></div>
+<script src="app.js"></script>
+</body>
+</html>

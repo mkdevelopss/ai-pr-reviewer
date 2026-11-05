@@ -1,0 +1,131 @@
+ai-pr-reviewer starting | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+ * Serving Flask app 'app'
+ * Debug mode: off
+rejected webhook: missing or invalid signature
+rejected webhook: missing or invalid signature
+ignored: ignored pull_request action 'closed'
+accepted webhook delivery-1: pull_request opened for demo/shop#1
+--- Reviewing demo/shop#1 'PROJ-101: Add login endpoint' (branch feature/PROJ-101-login) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 01a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 758 characters
+AI verdict: fulfilled=True
+done: set status 'success' on 01a1b2c
+done: merge PR #1 (squash)
+MERGED
+=== RESULT demo/shop#1: merged (fulfilled)
+accepted webhook delivery-2: pull_request opened for demo/shop#2
+--- Reviewing demo/shop#2 'PROJ-101: Add login endpoint' (branch feature/PROJ-101-login-v1) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 02a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 526 characters
+AI verdict: fulfilled=False
+done: post a 'request changes' review
+done: set status 'failure' on 02a1b2c
+=== RESULT demo/shop#2: changes_requested (not fulfilled)
+accepted webhook delivery-3: pull_request opened for demo/shop#3
+--- Reviewing demo/shop#3 'Fix some stuff' (branch fix-stuff) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 03a1b2c
+BLOCKED (no_ticket_id): No ticket ID found in the PR title ('Fix some stuff') or branch ('fix-stuff'). Put the Jira key in the PR title (e.g. 'PROJ-123: Login page') or the branch (feature/PROJ-123-login).
+done: post a PR comment
+done: set status 'failure' on 03a1b2c
+=== RESULT demo/shop#3: blocked (no_ticket_id)
+accepted webhook delivery-4: pull_request opened for demo/shop#4
+--- Reviewing demo/shop#4 'PROJ-999: Something' (branch feature/PROJ-999) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 04a1b2c
+ticket PROJ-999 found in PR title
+BLOCKED (ticket_unavailable): Ticket PROJ-999 was not found in Jira (or the token cannot see it).
+done: post a PR comment
+done: set status 'failure' on 04a1b2c
+=== RESULT demo/shop#4: blocked (ticket_unavailable)
+accepted webhook delivery-5: pull_request opened for demo/shop#5
+--- Reviewing demo/shop#5 'PROJ-102: Improve login' (branch feature/PROJ-102) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 05a1b2c
+ticket PROJ-102 found in PR title
+BLOCKED (no_acceptance_criteria): Ticket PROJ-102 has no acceptance criteria. Add an 'Acceptance Criteria' section to its description.
+done: post a PR comment
+done: set status 'failure' on 05a1b2c
+=== RESULT demo/shop#5: blocked (no_acceptance_criteria)
+accepted webhook delivery-6: pull_request opened for demo/shop#6
+--- Reviewing demo/shop#6 'PROJ-101: Empty change' (branch feature/PROJ-101-empty) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 06a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+BLOCKED (empty_diff): The PR has no code changes (empty diff), so there is nothing to verify.
+done: post a PR comment
+done: set status 'failure' on 06a1b2c
+=== RESULT demo/shop#6: blocked (empty_diff)
+accepted webhook delivery-7: pull_request opened for demo/shop#7
+--- Reviewing demo/shop#7 'PROJ-101: Huge change' (branch feature/PROJ-101-huge) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 07a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+BLOCKED (diff_too_large): The diff is 88,758 characters, over the 60,000-character limit for one LLM request. Split the PR or review it manually.
+done: post a PR comment
+done: set status 'failure' on 07a1b2c
+=== RESULT demo/shop#7: blocked (diff_too_large)
+accepted webhook delivery-8: pull_request opened for demo/shop#8
+--- Reviewing demo/shop#8 'PROJ-101: Prose answer' (branch feature/PROJ-101-x) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 08a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 779 characters
+BLOCKED (invalid_llm_response): The AI answer is not valid JSON. [The change looks mostly fine to me, nice work on the login form!]
+done: post a PR comment
+done: set status 'failure' on 08a1b2c
+=== RESULT demo/shop#8: blocked (invalid_llm_response)
+accepted webhook delivery-9: pull_request opened for demo/shop#9
+--- Reviewing demo/shop#9 'PROJ-101: Missing key' (branch feature/PROJ-101-y) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 09a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 779 characters
+BLOCKED (invalid_llm_response): The AI answer is missing the 'fulfilled' key.
+done: post a PR comment
+done: set status 'failure' on 09a1b2c
+=== RESULT demo/shop#9: blocked (invalid_llm_response)
+accepted webhook delivery-10: pull_request opened for demo/shop#10
+--- Reviewing demo/shop#10 'Login endpoint' (branch feature/proj-101-login-endpoint) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 10a1b2c
+ticket PROJ-101 found in branch name
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 758 characters
+AI verdict: fulfilled=True
+done: set status 'success' on 10a1b2c
+done: merge PR #10 (squash)
+MERGED
+=== RESULT demo/shop#10: merged (fulfilled)
+accepted webhook delivery-11: pull_request opened for demo/shop#11
+--- Reviewing demo/shop#11 'PROJ-101: LLM down' (branch feature/PROJ-101-z) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 11a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 774 characters
+BLOCKED (llm_unavailable): The AI service returned HTTP 500.
+done: post a PR comment
+done: set status 'failure' on 11a1b2c
+=== RESULT demo/shop#11: blocked (llm_unavailable)
+accepted webhook delivery-12: pull_request opened for demo/shop#12
+--- Reviewing demo/shop#12 'PROJ-101: Conflicting' (branch feature/PROJ-101-conflict) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 12a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 758 characters
+AI verdict: fulfilled=True
+done: set status 'success' on 12a1b2c
+merge failed: Could not merge PR #12 (squash): HTTP 405 Pull Request is not mergeable
+done: post a PR comment
+=== RESULT demo/shop#12: merge_failed (Could not merge PR #12 (squash): HTTP 405 Pull Request is not mergeable)
+accepted webhook delivery-13: pull_request opened for demo/shop#13
+--- Reviewing demo/shop#13 'PROJ-101: Own PR' (branch feature/PROJ-101-own) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 13a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 526 characters
+AI verdict: fulfilled=False
+review not allowed (Could not post a 'request changes' review: HTTP 422 Can not request changes on your own pull request); posting a normal comment instead
+done: post a PR comment
+done: set status 'failure' on 13a1b2c
+=== RESULT demo/shop#13: changes_requested (not fulfilled)

@@ -1,0 +1,18 @@
+Run that ends in a MERGE (PR demo/shop#1: signed webhook -> listener -> mock GitHub/Jira/LLM)
+
+## Listener log
+--- Reviewing demo/shop#1 'PROJ-101: Add login endpoint' (branch feature/PROJ-101-login) | mode=LIVE (will comment/merge) | tickets=jira | llm=openai:mock-reviewer | GITHUB_TOKEN set | WEBHOOK_SECRET set | LLM_API_KEY set
+done: set status 'pending' on 01a1b2c
+ticket PROJ-101 found in PR title
+ticket fetched: 'Login page with account lockout' (4 AC lines)
+diff fetched: 758 characters
+AI verdict: fulfilled=True
+done: set status 'success' on 01a1b2c
+done: merge PR #1 (squash)
+MERGED
+=== RESULT demo/shop#1: merged (fulfilled)
+
+## What was posted to GitHub
+STATUS  pending  ai-pr-reviewer: AI review in progress
+STATUS  success  ai-pr-reviewer: All acceptance criteria of PROJ-101 met
+MERGE   squash at 01a1b2c: PROJ-101: Add login endpoint (#1)
